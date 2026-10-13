@@ -1,0 +1,28 @@
+ANDROID + GOOGLE COLAB QUICK START
+
+1. Open https://colab.research.google.com/ in Chrome.
+2. Create a New notebook.
+3. Tap the folder icon on the left and upload data/student_data.csv.
+4. Run this install cell:
+   !pip install pandas matplotlib scikit-learn
+5. Copy the contents of src/train_model.py into a notebook cell.
+6. In that copied code, replace:
+   ROOT = Path(__file__).resolve().parents[1]
+   DATA_PATH = ROOT / "data" / "student_data.csv"
+   CHART_DIR = ROOT / "charts"
+   with:
+   DATA_PATH = Path("/content/student_data.csv")
+   CHART_DIR = Path("/content/charts")
+   ROOT is no longer needed for the run.
+7. Run the cell. The metrics and charts will be produced.
+8. To run the interactive predictor, copy src/predict_score.py into a new cell and
+   replace its ROOT-based dataset path with:
+   df = pd.read_csv("/content/student_data.csv")
+
+GitHub upload:
+- Extract the ZIP with your phone's Files app.
+- On github.com, create a new repository.
+- Use Add file > Upload files to upload README.md, requirements.txt, .gitignore,
+  data/student_data.csv, both src Python files, and ANDROID_COLAB_GUIDE.txt.
+- If the phone browser does not allow selecting multiple files, upload the files
+  in separate batches or use GitHub's mobile site in desktop mode.
